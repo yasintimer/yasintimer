@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تایمر</title>
+
+
+<style>
+    @font-face {
+    font-family:yasin;
+    src: url(Vazir-Regular.ttf);
+}
+body{background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);text-align: center;}
+div{font-size: 50px;}
+ 
+.bu1{background-color: rgb(255, 255, 255);border-radius: 10px;border-style:groove;padding: 18px;}
+
+.bu2{background-color: rgb(255, 255, 255);border-radius: 10px;border-style:groove;padding: 18px;}
+.bu3{background-color: rgb(255, 255, 255);border-radius: 10px;border-style:groove;padding: 18px;}
+
+#div1{font-family: yasin;}
+
+
+</style>
+</head>
+<body>
+    <br> <BR> <br>
+<div id="div1">
+0:0:0
+</div>
+<br>
+
+<button style="font-family: yasin;" disabled     id="btn-start2"  class="bu2" onclick="sto()">توقف</button>
+<button style="font-family: yasin;"   id="btn-start1"   class="bu1" onclick="str()" >شروع</button>
+<button style="font-family: yasin;"   disabled  id="btn-start3"  class="bu3" onclick="re()">از اول</button>
+
+
+
+<script>
+
+
+
+
+
+
+
+
+var a=0;
+var h=0;
+var m=0;
+var s=0;
+    var timer;
+    var flag_start=false;
+
+
+function yasin1() {
+
+    s=s+1
+    document.getElementById("div1").innerHTML  =h+":"+m+":"+ s ;
+
+if (s>59){
+m=m+1;
+s=0;
+}
+
+if (m>59){
+h=h+1;
+m=0;
+}
+
+if (h>23){
+h=0;
+}
+
+}
+
+function str(){
+    if(flag_start==false){
+        flag_start=true;
+        timer1=setInterval(yasin1,1000);
+        document.getElementById("btn-start1").disabled=true;
+        document.getElementById("btn-start2").disabled=false;
+        document.getElementById("btn-start3").disabled=false;
+    }
+    }
+    
+    
+ 
+
+function sto(){
+    clearInterval(timer1);
+    flag_start=false;
+    document.getElementById("btn-start1").disabled=false;
+    document.getElementById("btn-start2").disabled=true;
+    
+    
+}
+
+function re(){
+    sto()
+    s=0;
+    h=0;
+    m=0;
+    document.getElementById("div1").innerHTML  ='0:0:0';
+    flag_start=false;
+
+
+    document.getElementById("btn-start1").disabled=false;
+    document.getElementById("btn-start2").disabled=true;
+    document.getElementById("btn-start3").disabled=true;
+    
+}
+
+alert('ساخت شده توسط سید یاسین بنی هاشمی')
+
+
+</script>
+
+
+</body>
+</html>
